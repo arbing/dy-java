@@ -93,13 +93,13 @@ public class DyHttpExecutor {
         String description = "";
         if (response instanceof DyResult) {
             DyResult<?> dyResult = (DyResult<?>) response;
-            if (dyResult.getData() instanceof IDyBaseVo) {
+            if (Objects.nonNull(dyResult.getExtra())) {
+                errorCode = Objects.nonNull(dyResult.getExtra().getSubErrorCode()) ? dyResult.getExtra().getSubErrorCode() : dyResult.getExtra().getErrorCode();
+                description = StringUtils.isNotEmpty(dyResult.getExtra().getSubDescription()) ? dyResult.getExtra().getSubDescription() : dyResult.getExtra().getDescription();
+            } else if (dyResult.getData() instanceof IDyBaseVo) {
                 IDyBaseVo dyData = (IDyBaseVo) dyResult.getData();
                 errorCode = dyData.getErrorCode();
                 description = dyData.getDescription();
-            } else {
-                errorCode = dyResult.getExtra().getErrorCode();
-                description = dyResult.getExtra().getDescription();
             }
         } else if (response instanceof IDySimpleBaseVo) {
             IDySimpleBaseVo dySimple = (IDySimpleBaseVo) response;

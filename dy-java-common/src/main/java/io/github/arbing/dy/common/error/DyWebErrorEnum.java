@@ -30,6 +30,8 @@ public enum DyWebErrorEnum {
     access_token无效(2190002L, "access_token 无效"),
     access_token过期请刷新或重新授权(2190008L, "access_token 过期,请刷新或重新授权"),
 
+    // 子错误码
+    请确认用户粉丝是否符合要求(110422L, "请确认用户粉丝是否符合要求"),
 
     ;
 
