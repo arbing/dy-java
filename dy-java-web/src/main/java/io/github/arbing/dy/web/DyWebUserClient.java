@@ -697,7 +697,7 @@ public class DyWebUserClient {
      *
      * @return
      */
-    private AccessTokenResponse doGetAccessToken() {
+    protected AccessTokenResponse doGetAccessToken() {
         String path = "/oauth/refresh_token/";
         String url = this.getUserConfig().getBaseUrl().concat(path);
         String refreshToken = this.getUserConfig().getRefreshToken();

@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.github.arbing</groupId>
         <artifactId>dy-java</artifactId>
-        <version>1.0.0-B</version>
+        <version>1.0.1-B</version>
     </parent>
 
     <artifactId>dy-java-web</artifactId>
